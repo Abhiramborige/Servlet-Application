@@ -1,0 +1,23 @@
+*{
+    font-family: calibri;
+}
+body{
+    border: 2px solid black;
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    flex-direction: column;
+    height:fit-content;
+    text-align: center;
+}
+div{
+    text-align: center;
+    border: 2px dashed black;
+    max-width: 100rem;
+}
+b{
+    font-size: x-large;
+}
+p{
+    word-wrap: break-word;
+}
