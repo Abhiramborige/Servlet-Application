@@ -14,9 +14,10 @@
 
 <h2>The databse have these users registered through this form.</h2>
 
+
 <% 
     Class.forName("com.mysql.cj.jdbc.Driver");
-    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_application","root","abhiram*68*");
+    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_application","root","<password>");
     Statement stmt=con.createStatement();
     ResultSet rs=stmt.executeQuery("SELECT * FROM store_user;"); 
 %>

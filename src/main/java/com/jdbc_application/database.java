@@ -47,7 +47,7 @@ public class database{
     }
     public void get_data(HttpServletRequest request, HttpServletResponse response) throws ClassNotFoundException, SQLException, IOException{
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_application","root","abhiram*68*"); 
+        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_application","root","<password>"); 
         Statement stmt=con.createStatement();
         ResultSet rs1=stmt.executeQuery("SELECT * FROM store_user;");
         PrintWriter out=response.getWriter();
