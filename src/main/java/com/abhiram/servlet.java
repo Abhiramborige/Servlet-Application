@@ -29,7 +29,6 @@ public class servlet extends HttpServlet {
                 // forward the request and response
                 rd.include(request, response);
                 out.println("<h2 style=color:red> Enter a valid name </h2>");
-                /* Easter egg 😃✌ */
                 /* ServletContext interface application */
                 ServletContext sc=getServletConfig().getServletContext();
                 /* These are available to any servlet or JSPs that are part of the web app. */

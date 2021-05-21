@@ -21,6 +21,10 @@
     <servlet-name>admin</servlet-name>
     <servlet-class>com.abhiram.admin</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>jdbc_servlet</servlet-name>
+    <servlet-class>com.jdbc_application.main_servlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>servlet</servlet-name>
@@ -29,6 +33,10 @@
   <servlet-mapping>
     <servlet-name>admin</servlet-name>
     <url-pattern>/admin_api</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>jdbc_servlet</servlet-name>
+    <url-pattern>/register</url-pattern>
   </servlet-mapping>
   
   <welcome-file-list>

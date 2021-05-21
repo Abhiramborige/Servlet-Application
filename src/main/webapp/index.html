@@ -3,19 +3,25 @@
 
 <head>
     <title>Start Page</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styling/style.css">
 </head>
 
 <body>
     <h1>Hello World!!</h1>
-    <form action="api" method="POST">
+    <form action="./api" method="POST">
         <label>Name: </label><input type="text" name="user"><br><br>
-        <input type="submit" value="Click here" name="USER"><br><br>
+        <input type="submit" value="Submit" name="USER"><br><br>
         <input type="submit" value="Enter as admin via Request Dispatcher" name="ADMIN_Dispatcher"><br><br>
-        <input type="submit" value="Enter as admin via Response Redirect" name="ADMIN_Redirect">
+        <input type="submit" value="Enter as admin via Response Redirect" name="ADMIN_Redirect"><br><br>
     </form>
-    <h2>index.html</h2>
+    <label>Click here for JDBC, Servlet, JSP Demonstration</label>
+    <form action="data_insertion.html">
+        <input type="submit" value="Click">
+    </form>
+    <p>index.html</p>
 </body>
 
 </html>
