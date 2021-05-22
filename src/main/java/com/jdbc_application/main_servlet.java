@@ -27,10 +27,10 @@ public class main_servlet extends HttpServlet{
             db.get_data(request, response);
         }
         catch (Exception e) {
-            RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
+            RequestDispatcher rd=request.getRequestDispatcher("data_insertion.html");
             rd.include(request, response);
-            out.println("<p>Entered in wrong format, exception occured!</p>");
-            out.println("<p>Error!"+e+"</p>");
+            out.println("<p style=color:red>Entered in wrong format, exception occured!</p>");
+            out.println("<h4 style=color:red>Error!"+e+"</h4>");
             out.println("</body>");
         }
         finally{

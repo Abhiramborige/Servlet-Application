@@ -48,8 +48,8 @@
 6. Many more coming soon. Contributions are welcomed. Must integrate with the project, but not make it as seperate project. 
 
 ## Must do things after cloning:
-1. In database.java, update line no. 20 and 50 with the password of your MySQL database server.
+1. In database.java, update line no. 18 with the password of your MySQL database server.
 2. In view.jsp, update line no. 20 with the password of your MySQL database server.
-2. Then run using mvn commands. 
+2. Then run using mvn commands (mvn clean, and then mvn package)
 
 ### Hope it helps! 👍🙂

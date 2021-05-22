@@ -15,19 +15,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class database{
+    String password="password";
     public void put_data(String Username, String Password, String date_of_birth) throws ClassNotFoundException, SQLException{
         Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","<password>");
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/","root",password);
         Statement stmt1=con.createStatement();
         stmt1.executeUpdate( "CREATE DATABASE IF NOT EXISTS servlet_application ;");
         stmt1.executeUpdate("USE servlet_application;");
         stmt1.executeQuery("SELECT DATABASE();");
         String query1=(
                 "CREATE TABLE IF NOT EXISTS store_user("+
-                "Username varchar(30) not null,"+
-                "Password varchar(30) not null,"+
-                "date_of_birth date not null,"+
-                "date_register timestamp not null);"
+                "Username varchar(30) NOT NULL PRIMARY KEY,"+
+                "Password varchar(30) NOT NULL,"+
+                "date_of_birth date NOT NULL,"+
+                "date_register timestamp NOT NULL);"
                 );
         stmt1.executeUpdate(query1);
         PreparedStatement stmt2=con.prepareStatement("INSERT INTO store_user VALUES(?,?,?,?)"); 
@@ -47,7 +48,7 @@ public class database{
     }
     public void get_data(HttpServletRequest request, HttpServletResponse response) throws ClassNotFoundException, SQLException, IOException{
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_application","root","<password>"); 
+        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_application","root",password); 
         Statement stmt=con.createStatement();
         ResultSet rs1=stmt.executeQuery("SELECT * FROM store_user;");
         PrintWriter out=response.getWriter();

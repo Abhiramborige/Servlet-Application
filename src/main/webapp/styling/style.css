@@ -15,6 +15,13 @@ table td {
 }
 table {
   border-collapse: collapse;
+  table-layout: auto;
+}
+table tr:nth-child(even){
+  background-color: lightblue;
+}
+table tr:hover{
+  background-color: #ddd;
 }
 div {
   text-align: center;
