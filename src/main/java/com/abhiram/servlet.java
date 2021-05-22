@@ -58,10 +58,10 @@ public class servlet extends HttpServlet {
                 out.println("<h2> Welcome User "+user+"</h2>");
                 /* ServletConfig interface methods application */
                 ServletConfig sc=getServletConfig();
-                out.println("<p><a href='"+sc.getInitParameter("GithubLink")+"'>Project Link</a></p>");
+                out.println("<div><p><a href='"+sc.getInitParameter("GithubLink")+"'>Project Link</a></p>");
                 out.println("<p>Servlet context <b>" + request.getServletContext() + "</b></p>");
                 out.println("<p>Servlet name <b>" + sc.getServletName() + "</b></p>");
-                out.println("<p>Initializing parameter name collection <b>" + sc.getInitParameterNames() + "</b></p>");
+                out.println("<p>Initializing parameter name collection <b>" + sc.getInitParameterNames() + "</b></p></div>");
                 out.println("</body>");
             }
         }

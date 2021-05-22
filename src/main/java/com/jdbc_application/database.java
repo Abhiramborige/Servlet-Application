@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class database{
-    String password="password";
+    String password="abhiram*68*";
     public void put_data(String Username, String Password, String date_of_birth) throws ClassNotFoundException, SQLException{
         Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/","root",password);

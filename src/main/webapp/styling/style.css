@@ -1,34 +1,47 @@
 * {
   font-family: calibri;
+  color: white;
 }
 body {
-  border: 2px solid black;
+  border: 2px solid white;
   display: flex;
   margin-top: 20px;
   align-items: center;
   flex-direction: column;
   height: fit-content;
   text-align: center;
+  background-color: black;
 }
 table td {
-  border: 2px solid black;
+  border: 2px solid white;
 }
+
 table {
   border-collapse: collapse;
-  table-layout: auto;
+  table-layout: fixed;
+  margin: 0 auto;
 }
-table tr:nth-child(even){
+table tr:nth-child(even) td {
   background-color: lightblue;
+  color: black;
 }
-table tr:hover{
+tbody tr:hover td {
   background-color: #ddd;
+  color: black;
+}
+input {
+  color: black;
 }
 div {
   text-align: center;
-  border: 2px dashed black;
-  max-width: 100rem;
+  border: 2px solid green;
+  min-width: 90vw;
+  box-shadow: 5px 5px 10px greenyellow;
 }
 p {
   word-wrap: break-word;
-  line-height: 0;
+}
+.table {
+  all: initial;
+  overflow-x: auto;
 }

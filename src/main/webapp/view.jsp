@@ -17,7 +17,7 @@
 
 <h2>The databse have these users registered through this form.</h2>
 
-<%! String password="password"; %>
+<%! String password="abhiram*68*"; %>
 
 <% 
     Class.forName("com.mysql.cj.jdbc.Driver");
@@ -25,7 +25,7 @@
     Statement stmt=con.createStatement();
     ResultSet rs=stmt.executeQuery("SELECT * FROM store_user;"); 
 %>
-<div>
+<div class="table">
     <table>
         <thead>
             <tr>

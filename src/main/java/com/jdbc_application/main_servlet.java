@@ -21,7 +21,9 @@ public class main_servlet extends HttpServlet{
             database db=new database();
             db.put_data(username, password, date_of_birth);
             String cssTag="<link rel='stylesheet' type='text/css' href='./styling/style.css'>";
-            out.println("<head><title>Servlet Home Page</title>"+cssTag+"</head>");
+            out.println("<head><title>Servlet Home Page</title>"+cssTag);
+            out.println("<meta http-equiv='X-UA-Compatible' content='IE=edge'>"+
+            "<meta name='viewport' content='width=device-width, initial-scale=1.0'></head>");
             out.println("<body>");
             out.println("<h2>Registration Page, <br> Successful Append into Database</h2>");
             db.get_data(request, response);
