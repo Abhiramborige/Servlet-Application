@@ -36,7 +36,7 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>jdbc_servlet</servlet-name>
-    <url-pattern>/register</url-pattern>
+    <url-pattern>/success</url-pattern>
   </servlet-mapping>
   
   <welcome-file-list>

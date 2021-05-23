@@ -15,10 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class database{
-    String password="abhiram*68*";
+    String password="password";
     public void put_data(String Username, String Password, String date_of_birth) throws ClassNotFoundException, SQLException{
         Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/","root",password);
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/","root",this.password);
         Statement stmt1=con.createStatement();
         stmt1.executeUpdate( "CREATE DATABASE IF NOT EXISTS servlet_application ;");
         stmt1.executeUpdate("USE servlet_application;");
@@ -48,7 +48,7 @@ public class database{
     }
     public void get_data(HttpServletRequest request, HttpServletResponse response) throws ClassNotFoundException, SQLException, IOException{
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_application","root",password); 
+        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_application","root",this.password); 
         Statement stmt=con.createStatement();
         ResultSet rs1=stmt.executeQuery("SELECT * FROM store_user;");
         PrintWriter out=response.getWriter();
@@ -57,6 +57,27 @@ public class database{
             out.println("<p>"+rs1.getString(1)+' '
             +rs1.getString(2)+' '+rs1.getString(3)+' '+
             rs1.getString(4)+"</p>");
+        }
+    }
+    public void login(String username, String password) throws ClassNotFoundException, SQLException{
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_application","root",this.password); 
+        Statement stmt=con.createStatement();
+        ResultSet rs=stmt.executeQuery("SELECT * FROM store_user WHERE username="+"'"+username+"';");
+        System.out.println(rs);
+        if(!rs.next()){
+            throw new SQLException("No username found");
+        }
+        else{
+            rs=stmt.executeQuery("SELECT * FROM store_user WHERE password="+"'"+password+"';");
+            if(!(rs.next())){
+                throw new SQLException("Invalid Password");
+            }
+            else{
+                while(rs.next()){ 
+                    System.out.println(rs.getString(1)+" "+rs.getString(2));
+                }
+            }
         }
     }
 }
