@@ -46,7 +46,9 @@ p {
   overflow-x: auto;
 }
 div.buttons{
+  border: none;
+  box-shadow: none;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 }
