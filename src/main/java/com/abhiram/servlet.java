@@ -28,7 +28,7 @@ public class servlet extends HttpServlet {
                 RequestDispatcher rd=request.getRequestDispatcher("index.html");
                 // forward the request and response
                 rd.include(request, response);
-                out.println("<h2 style=color:red> Enter a valid name </h2>");
+                out.println("<h3> Enter a valid name </h3>");
                 /* ServletContext interface application */
                 ServletContext sc=getServletConfig().getServletContext();
                 /* These are available to any servlet or JSPs that are part of the web app. */

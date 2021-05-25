@@ -52,3 +52,9 @@ div.buttons{
   flex-direction: row;
   justify-content: center;
 }
+div.buttons form{
+  margin:10px
+}
+h3{
+  color: orangered;
+}

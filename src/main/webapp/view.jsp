@@ -23,7 +23,7 @@
     Class.forName("com.mysql.cj.jdbc.Driver");
     Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_application","root",password);
     Statement stmt=con.createStatement();
-    ResultSet rs=stmt.executeQuery("SELECT * FROM store_user;"); 
+    ResultSet rs=stmt.executeQuery("SELECT * FROM store_user ORDER BY date_register;"); 
 %>
 <div class="table">
     <table>

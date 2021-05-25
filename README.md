@@ -26,6 +26,7 @@
     * mysql-connector-java
 4. JDBC and MySQL concepts:
     * Connection via driver
+    * ResultSet, Statement
     * Creation 
     ```mysql
     CREATE DATABASE servlet_application ;
@@ -35,7 +36,19 @@
     date_of_birth date NOT NULL,
     date_register timestamp NOT NULL);
     ```
-    * Insertion, selection operations 
+    * Registration (Insertion operation)
+    ```mysql
+    INSERT INTO store_user VALUES
+    (NULLIF(Username,''), 
+    NULLIF(Password,''), 
+    NULLIF(date_of_birth,''), 
+    date_register);
+    ```
+    * Authentication (Selection operation)
+    ```mysql
+    SELECT * FROM store_user WHERE Username="username";
+    SELECT * FROM store_user WHERE Username="username" AND Password="password";
+    ```
 5. Other concepts:
     * Conditional statements
     * Looping

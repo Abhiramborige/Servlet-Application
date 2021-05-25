@@ -27,26 +27,36 @@ public class main_servlet extends HttpServlet{
             out.println("<body>");
             String conditional=(String) request.getParameter("button");
             if(conditional.contentEquals("Register")){
-                db.put_data(username, password, date_of_birth);
-                out.println("<h2>Registration Page, <br> Successful Append into Database</h2>");
-                db.get_data(request, response);
+                try{
+                    db.put_data(username, password, date_of_birth);
+                    out.println("<h2>Registration Page, <br> Successful Append into Database</h2>");
+                    db.get_data(request, response);
+                }
+                catch(Exception e){
+                    RequestDispatcher rd=request.getRequestDispatcher("data_insertion.html");
+                    rd.include(request, response);
+                    out.println("<h3>Entered in wrong format, exception occured!"+
+                    "<br>Error!"+e+"</h3>");
+                }
             }
             else if(conditional.contentEquals("Login")){
-                db.login(username, password);
-                out.println("<h2>Login Page, <br> Successful Login</h2>");
+                try{
+                    db.login(username, password);
+                    out.println("<h2>Login Page, <br> Successful Login</h2>");
+                }
+                catch(Exception e){
+                    RequestDispatcher rd=request.getRequestDispatcher("data_search.html");
+                    rd.include(request, response);
+                    out.println("<h3>Entered in wrong format, exception occured!"+
+                    "<br>Error!"+e+"</h3>");
+                }
             }
         }
-        catch(SQLException e){
-            RequestDispatcher rd=request.getRequestDispatcher("data_search.html");
-            rd.include(request, response);
-            out.println("<p style=color:red>Entered in wrong format, exception occured!</p>");
-            out.println("<h4 style=color:red>Error!"+e+"</h4>");
-        }
         catch (Exception e) {
-            RequestDispatcher rd=request.getRequestDispatcher("data_insertion.html");
+            RequestDispatcher rd=request.getRequestDispatcher("index.html");
             rd.include(request, response);
-            out.println("<p style=color:red>Entered in wrong format, exception occured!</p>");
-            out.println("<h4 style=color:red>Error!"+e+"</h4>");
+            out.println("<h3>Entered in wrong format, exception occured!"+
+            "<br>Error!"+e+"</h3>");
         }
         finally{
             out.println("</body>");
