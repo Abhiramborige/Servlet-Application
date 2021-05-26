@@ -75,6 +75,8 @@
       <img src="http://img.youtube.com/vi/mbE3nve0G90/0.jpg#image">
    </a>
 </div>
+
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/L7iKSmuuNuw/0.jpg#image)](http://www.youtube.com/watch?v=L7iKSmuuNuw)
 img[src*="#image"] {
    width:150px;
    height:100px;
