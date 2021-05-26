@@ -69,8 +69,11 @@
 
 *** 
 ## Video for reference:
-[![IMAGE ALT TEXT HERE]()](https://youtu.be/T33X5lPYWS4)
-<img style="float: right;" src="http://img.youtube.com/vi/T33X5lPYWS4/0.jpg"><a href="https://youtu.be/T33X5lPYWS4"></a></img>
+
+<a href="https://youtu.be/T33X5lPYWS4">
+   <img style="float: right;" src="http://img.youtube.com/vi/T33X5lPYWS4/0.jpg">
+</a>
+   
 
 
 
