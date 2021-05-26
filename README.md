@@ -66,15 +66,19 @@
 ## Video for reference:
 <div align="center">
    <a href="https://youtu.be/T33X5lPYWS4" target="_blank" rel="noopener noreferrer">
-      <img src="http://img.youtube.com/vi/T33X5lPYWS4/0.jpg" width="200" height="200">
+      <img src="http://img.youtube.com/vi/T33X5lPYWS4/0.jpg#image">
    </a>
    <a href="https://youtu.be/4QQ3e1vVwdU" target="_blank" rel="noopener noreferrer">
-      <img src="http://img.youtube.com/vi/4QQ3e1vVwdU/0.jpg" width="200" height="200">
+      <img src="http://img.youtube.com/vi/4QQ3e1vVwdU/0.jpg#image">
    </a>
    <a href="https://youtu.be/mbE3nve0G90" target="_blank" rel="noopener noreferrer">
-      <img src="http://img.youtube.com/vi/mbE3nve0G90/0.jpg" width="200" height="200">
+      <img src="http://img.youtube.com/vi/mbE3nve0G90/0.jpg#image">
    </a>
 </div>
+img[src*="#image"] {
+   width:150px;
+   height:100px;
+}
 
 ***
 ## Must do things after cloning:
