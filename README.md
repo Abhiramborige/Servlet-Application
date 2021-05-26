@@ -3,6 +3,7 @@
 * Uses Apache TomCat for deployment and testing
 * Worked in Microsoft VS Code 
 
+*** 
 ## Includes:
 1.  Basic Servlet concepts
     * Servlet API (classes and interfaces)
@@ -55,6 +56,7 @@
     * Styling with css
     * Exceptional handling
     * Modular programming
+    * Erros/Exceptional Handling
     * Packages
     * HTML rendering
     * XML modifications.
@@ -63,6 +65,12 @@
 ## Must do things after cloning:
 1. In database.java, update line no. 18 with the password of your MySQL database server.
 2. In view.jsp, update line no. 20 with the password of your MySQL database server.
-2. Then run using mvn commands (mvn clean, and then mvn package)
+3. Then run using mvn commands (mvn clean, and then mvn package)
+
+*** 
+## Video for reference:
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/L7iKSmuuNuw/0.jpg)](http://www.youtube.com/watch?v=L7iKSmuuNuw)https://youtu.be/T33X5lPYWS4
+<iframe width="560" height="315" src="https://www.youtube.com/embed/T33X5lPYWS4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ### Hope it helps! 👍🙂
