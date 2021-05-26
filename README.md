@@ -62,17 +62,26 @@
     * XML modifications.
 6. Many more coming soon. Contributions are welcomed. Must integrate with the project, but not make it as seperate project. 
 
+*** 
+## Video for reference:
+<div>
+   <a href="https://youtu.be/T33X5lPYWS4" target="_blank" rel="noopener noreferrer">
+      <img style="float: right;" src="http://img.youtube.com/vi/T33X5lPYWS4/0.jpg">
+   </a>
+   <a href="https://youtu.be/4QQ3e1vVwdU" target="_blank" rel="noopener noreferrer">
+      <img style="float: left;" src="http://img.youtube.com/vi/4QQ3e1vVwdU/0.jpg">
+   </a>
+   <a href="https://youtu.be/mbE3nve0G90" target="_blank" rel="noopener noreferrer">
+      <img style="float: right;" src="http://img.youtube.com/vi/mbE3nve0G90/0.jpg">
+   </a>
+</div>
+***
+
 ## Must do things after cloning:
 1. In database.java, update line no. 18 with the password of your MySQL database server.
 2. In view.jsp, update line no. 20 with the password of your MySQL database server.
 3. Then run using mvn commands (mvn clean, and then mvn package)
 
-*** 
-## Video for reference:
-
-<a href="https://youtu.be/T33X5lPYWS4">
-   <img style="float: right;" src="http://img.youtube.com/vi/T33X5lPYWS4/0.jpg">
-</a>
    
 
 
