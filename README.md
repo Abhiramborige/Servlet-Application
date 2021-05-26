@@ -64,7 +64,7 @@
 
 *** 
 ## Video for reference:
-<div style="display: flex; flex-wrap: no-wrap">
+<div>
    <a href="https://youtu.be/T33X5lPYWS4" target="_blank" rel="noopener noreferrer">
       <img src="http://img.youtube.com/vi/T33X5lPYWS4/0.jpg">
    </a>
