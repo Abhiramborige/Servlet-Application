@@ -69,8 +69,8 @@
 
 *** 
 ## Video for reference:
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/L7iKSmuuNuw/0.jpg)](http://www.youtube.com/watch?v=L7iKSmuuNuw)https://youtu.be/T33X5lPYWS4
-<iframe width="560" height="315" src="https://www.youtube.com/embed/T33X5lPYWS4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/T33X5lPYWS4/0.jpg)](https://youtu.be/T33X5lPYWS4)
+
 
 
 ### Hope it helps! 👍🙂
