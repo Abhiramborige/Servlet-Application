@@ -64,7 +64,7 @@
 
 *** 
 ## Video for reference:
-<div style="display: flex; flex-wrap: wrap">
+<div style="display: flex; flex-wrap: no-wrap">
    <a href="https://youtu.be/T33X5lPYWS4" target="_blank" rel="noopener noreferrer">
       <img src="http://img.youtube.com/vi/T33X5lPYWS4/0.jpg">
    </a>
@@ -75,8 +75,8 @@
       <img src="http://img.youtube.com/vi/mbE3nve0G90/0.jpg">
    </a>
 </div>
-***
 
+***
 ## Must do things after cloning:
 1. In database.java, update line no. 18 with the password of your MySQL database server.
 2. In view.jsp, update line no. 20 with the password of your MySQL database server.
