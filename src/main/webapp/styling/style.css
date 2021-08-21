@@ -55,6 +55,11 @@ div.buttons{
 div.buttons form{
   margin:10px
 }
-h3{
+h3, h3 ul li{
   color: orangered;
+  text-align: left;
+  font-size: initial;
+}
+table thead{
+  font-size: large;
 }

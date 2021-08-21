@@ -11,11 +11,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class database{
-    String password="password";
+    String password="abhiram*68*";
     public void put_data(String Username, String Password, String date_of_birth) throws  Exception{
         Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/","root",this.password);
@@ -42,7 +45,6 @@ public class database{
         stmt2.setString(2, Password);
         stmt2.setDate(3, Date.valueOf(date_of_birth));
         java.sql.Timestamp timestamp = getCurrentJavaSqlTimestamp();
-        System.out.println("timestamp=" + timestamp);
         stmt2.setTimestamp(4,timestamp);
         stmt2.executeUpdate();
         con.close();
@@ -59,31 +61,58 @@ public class database{
         ResultSet rs1=stmt.executeQuery("SELECT * FROM store_user ORDER BY date_register;");
         PrintWriter out=response.getWriter();
         response.setContentType("text/html;charset=UTF-8");
+        out.println("<p>");
         while(rs1.next()){ 
-            out.println("<p>"+rs1.getString(1)+' '
+            out.println(rs1.getString(1)+' '
             +rs1.getString(2)+' '+rs1.getString(3)+' '+
-            rs1.getString(4)+"</p>");
+            rs1.getString(4)+"<br>");
         }
+        out.println("</p>");
     }
-    public void login(String username, String password) throws ClassNotFoundException, SQLException{
+    public void login(String username, String password, HttpServletRequest request, HttpServletResponse response)throws ClassNotFoundException, SQLException, IOException, ServletException{
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_application","root",this.password); 
         Statement stmt=con.createStatement();
-        ResultSet rs=stmt.executeQuery("SELECT * FROM store_user WHERE username="+"'"+username+"';");
-        System.out.println(rs);
+        ResultSet rs=stmt.executeQuery("SELECT * FROM store_user WHERE Username="+"'"+username+"';");
         if(!rs.next()){
-            throw new SQLException("No username found");
+            throw new SQLException("No Username found");
         }
         else{
-            rs=stmt.executeQuery("SELECT * FROM store_user WHERE username="+"'"+username+"' AND password="+"'"+password+"';");
+            rs=stmt.executeQuery("SELECT * FROM store_user WHERE Username="+"'"+username+"' AND password="+"'"+password+"';");
             if(!(rs.next())){
                 throw new SQLException("Invalid Password");
             }
             else{
-                while(rs.next()){ 
-                    System.out.println(rs.getString(1)+" "+rs.getString(2));
+                // if username and password is found in the database, 
+                // put details in the session till user logs out.
+                String method=response.getHeader("method");
+                System.out.println("Login: "+method);
+                if(method=="session"){
+                    HttpSession session=request.getSession();
+                    // storing the username in the session is enough as it is primary key
+                    session.setAttribute("Username", username);
                 }
+                else if(method=="cookie"){
+                    Cookie loginCookie = new Cookie("Username",username);
+                    response.addCookie(loginCookie);
+                }
+                // redirect to User home page.
+                response.sendRedirect("home_user.jsp");
             }
+        }
+    }
+    public void delete_row(String username) throws ClassNotFoundException, SQLException{
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_application","root",this.password); 
+        Statement stmt=con.createStatement();
+
+        // https://stackoverflow.com/questions/2571915/return-number-of-rows-affected-by-sql-update-statement-in-java
+        int update_count=stmt.executeUpdate("DELETE FROM store_user WHERE Username='"+username+"';");
+        if(update_count>0){
+            throw new SQLException("User data deleted!");
+        }
+        else{
+            throw new SQLException("No User with specified Username found!");
         }
     }
 }

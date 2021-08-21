@@ -5,10 +5,11 @@ import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 public class main_servlet extends HttpServlet{
     public void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
@@ -32,22 +33,73 @@ public class main_servlet extends HttpServlet{
                     db.get_data(request, response);
                 }
                 catch(Exception e){
-                    RequestDispatcher rd=request.getRequestDispatcher("data_insertion.html");
+                    RequestDispatcher rd=request.getRequestDispatcher("data_insertion.jsp");
                     rd.include(request, response);
                     out.println("<h3>Entered in wrong format, exception occured!"+
                     "<br>Error!"+e+"</h3>");
                 }
             }
-            else if(conditional.contentEquals("Login")){
+            else if(conditional.contentEquals("Login Using HttpSession")){
+                response.setHeader("method", "session");
                 try{
-                    db.login(username, password);
-                    out.println("<h2>Login Page, <br> Successful Login</h2>");
+                    db.login(username, password, request, response);
                 }
                 catch(Exception e){
-                    RequestDispatcher rd=request.getRequestDispatcher("data_search.html");
+                    RequestDispatcher rd=request.getRequestDispatcher("data_search.jsp");
                     rd.include(request, response);
                     out.println("<h3>Entered in wrong format, exception occured!"+
                     "<br>Error!"+e+"</h3>");
+                }
+            }
+            else if(conditional.contentEquals("Login Using Cookies")){
+                response.setHeader("method", "cookie");
+                try{
+                    db.login(username, password, request, response);
+                }
+                catch(Exception e){
+                    RequestDispatcher rd=request.getRequestDispatcher("data_search.jsp");
+                    rd.include(request, response);
+                    out.println("<h3>Entered in wrong format, exception occured!"+
+                    "<br>Error!"+e+"</h3>");
+                }
+            }
+            else if(conditional.contentEquals("Logout")){
+                HttpSession session=request.getSession(false);
+                String user=(String) session.getAttribute("Username");
+                // check in session storage
+                if(user!=null){
+                    session.removeAttribute("Username");
+                    session.invalidate();
+                    System.out.println("Logged out, removed column from (session): "+user);
+                }
+                // check in cookie storage
+                else{
+                    Cookie[] cookies = request.getCookies();
+                    if(cookies!=null){
+                        for(Cookie cookie : cookies){
+                            user=cookie.getName();
+                            if(user.equals("Username")){
+                                cookie.setMaxAge(0);
+                                response.addCookie(cookie);
+                                user=cookie.getValue();
+                                break;
+                            }
+                        }
+                        System.out.println("Logged out, removed column from (cookie): "+user);
+                    }
+                }
+                // redirect to login page
+                response.sendRedirect("data_search.jsp");
+            }
+            else if(conditional.contentEquals("Delete")){
+                try{
+                    db.delete_row(username);
+                }
+                catch(Exception e){
+                    RequestDispatcher rd=request.getRequestDispatcher("view.jsp");
+                    rd.include(request, response);
+                    out.println("<h3>Query completed!"+
+                    "<br>"+e+"</h3>");
                 }
             }
         }

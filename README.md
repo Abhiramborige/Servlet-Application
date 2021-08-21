@@ -50,6 +50,11 @@
     SELECT * FROM store_user WHERE Username="username";
     SELECT * FROM store_user WHERE Username="username" AND Password="password";
     ```
+    * Deletion (Dropping row)
+    ```mysql
+    DELETE FROM store_user WHERE Username="username";
+    ```
+    
 5. Other concepts:
     * Conditional statements
     * Looping
@@ -73,6 +78,9 @@
    </a>
    <a href="https://youtu.be/mbE3nve0G90" target="_blank" rel="noopener noreferrer">
       <img src="http://img.youtube.com/vi/mbE3nve0G90/0.jpg" height="200px" width="250px">
+   </a>
+   <a href="https://youtu.be/cuscNGMMtfs" target="_blank" rel="noopener noreferrer">
+      <img src="http://img.youtube.com/vi/cuscNGMMtfs/0.jpg" height="200px" width="250px">
    </a>
 </div>
 
