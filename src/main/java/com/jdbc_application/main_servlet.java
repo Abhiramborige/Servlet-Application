@@ -57,12 +57,22 @@ public class main_servlet extends HttpServlet {
                     out.println("<h3>Entered in wrong format, exception occured!" + "<br>Error!" + e + "</h3>");
                 }
             } else if (conditional.contentEquals("Update password")) {
-                response.setHeader("method", "cookie");
                 try {
                     String oldUsername = (String) request.getParameter("old_username");
+                    String oldPassword = (String) request.getParameter("old_password");
                     String newPassword = (String) request.getParameter("new_password");
-                    if (newPassword != null)
-                        db.update_row(oldUsername, newPassword);
+                    String confirmNewPassword = (String) request.getParameter("confirm_new_password");
+
+                    if (newPassword == null || newPassword.isEmpty() || confirmNewPassword == null
+                            || confirmNewPassword.isEmpty()) {
+                        throw new Exception("Invalid password!");
+                    }
+                    if (!newPassword.equals(confirmNewPassword)) {
+                        throw new Exception("Passwords do not match!");
+                    }
+
+                    db.update_row(oldUsername, oldPassword, newPassword);
+
                 } catch (SQLException e) {
                     RequestDispatcher rd = request.getRequestDispatcher("data_search.jsp");
                     rd.include(request, response);
@@ -70,7 +80,7 @@ public class main_servlet extends HttpServlet {
                 } catch (Exception e) {
                     RequestDispatcher rd = request.getRequestDispatcher("data_search.jsp");
                     rd.include(request, response);
-                    out.println("<h3>Entered in wrong format, exception occured!" + "<br>Error!" + e + "</h3>");
+                    out.println("<h3>" + "<br>Error!" + e + "</h3>");
                 }
             } else if (conditional.contentEquals("Logout")) {
                 HttpSession session = request.getSession(false);

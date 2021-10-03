@@ -116,18 +116,19 @@ public class database {
         }
     }
 
-    public void update_row(String username, String newPassword) throws ClassNotFoundException, SQLException {
+    public void update_row(String username, String oldPassword, String newPassword)
+            throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_application", "root",
                 this.password);
         Statement stmt = con.createStatement();
 
-        int update_count = stmt.executeUpdate(
-                "UPDATE store_user SET password='" + newPassword + "' WHERE username='" + username + "';");
+        int update_count = stmt.executeUpdate("UPDATE store_user SET password='" + newPassword + "' WHERE username='"
+                + username + "' AND password='" + oldPassword + "';");
         if (update_count > 0) {
             throw new SQLException("User password updated!");
         } else {
-            throw new SQLException("No User with specified Username found!");
+            throw new SQLException("Username/password not found!");
         }
     }
 }

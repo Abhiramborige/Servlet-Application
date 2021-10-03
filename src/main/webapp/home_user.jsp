@@ -44,7 +44,9 @@
 
 <form action="./success" method="POST">
     <input type='hidden' name="old_username" value="<%= username %>">
-    <input type='password' name="new_password">
+    Old Password: <input type='password' name="old_password">
+    New Password: <input type='password' name="new_password">  
+    Confirm new password: <input type='password' name="confirm_new_password">
     <input type='submit' value="Update password" name="button">
     <br/>
     <input type='submit' value='Logout' name="button">
