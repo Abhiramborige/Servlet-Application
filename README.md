@@ -54,6 +54,11 @@
     ```mysql
     DELETE FROM store_user WHERE Username="username";
     ```
+    * Updating Passowrd (Update row)
+    ```mysql
+    UPDATE store_user SET password="newPassword"
+    WHERE username="username" AND password="oldPassword";
+    ```
     
 5. Other concepts:
     * Conditional statements
